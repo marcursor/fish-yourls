@@ -48,9 +48,9 @@ function shorten -d "Shorten URL" -a url keyword
   set -l curl_cmd
 
   if set -q keyword 
-    set curl_cmd "command curl --max-time 5 -G -s \"http://$YOURLS_DOMAIN/yourls-api.php\" --data signature=\"$YOURLS_SIG\" --data action=\"shorturl\" --data-urlencode url=\"$url\" --data keyword=\"$keyword\" --data format=\"simple\" ^ /dev/stderr & await"
+    set curl_cmd "command curl --max-time 5 -G -s \"http://$YOURLS_DOMAIN/yourls-api.php\" --data signature=\"$YOURLS_SIG\" --data action=\"shorturl\" --data-urlencode url=\"$url\" --data keyword=\"$keyword\" --data format=\"simple\" ^ /dev/stderr"
   else
-    set curl_cmd "command curl --max-time 5 -G -s \"http://$YOURLS_DOMAIN/yourls-api.php\" --data signature=\"$YOURLS_SIG\" --data action=\"shorturl\" --data-urlencode url=\"$url\" --data format=\"simple\" ^ /dev/stderr & await" 
+    set curl_cmd "command curl --max-time 5 -G -s \"http://$YOURLS_DOMAIN/yourls-api.php\" --data signature=\"$YOURLS_SIG\" --data action=\"shorturl\" --data-urlencode url=\"$url\" --data format=\"simple\" ^ /dev/stderr" 
   end
 
   set -l result (fish -c "$curl_cmd")
