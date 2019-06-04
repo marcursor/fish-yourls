@@ -27,7 +27,7 @@ function shorten -d "Shorten URL" -a url keyword
       return
     case -D --delete
       set -l key "$argv[2]"
-      set -l deleted (fish -c "command curl --max-time 5 -s \"http://$YOURLS_DOMAIN/yourls-api.php?signature=$YOURLS_SIG&action=delete&shorturl=$key&format=simple\"  ^ /dev/stderr & await")
+      set -l deleted (fish -c "command curl --max-time 5 -s \"http://$YOURLS_DOMAIN/yourls-api.php?signature=$YOURLS_SIG&action=delete&shorturl=$key&format=simple\"  ^ /dev/stderr")
       if test -z "$deleted"
         echo "✘ Nothing was deleted."
       else
